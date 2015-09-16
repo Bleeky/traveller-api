@@ -1,10 +1,10 @@
 package main
 
 import (
-	"traveller-api/travelservice"
 	"github.com/emicklei/go-restful"
 	"log"
 	"net/http"
+	"traveller-api/travelservice"
 )
 
 func main() {
