@@ -1,8 +1,9 @@
 package placeservice
 
 import (
-	"github.com/emicklei/go-restful"
 	"traveller-api/utils"
+
+	"github.com/emicklei/go-restful"
 )
 
 type PlaceResource struct {

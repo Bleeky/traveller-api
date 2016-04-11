@@ -7,14 +7,16 @@ import (
 	"traveller-api/utils"
 )
 
+// TravelResource
 type TravelResource struct {
-	Id          int    `db:"id" json:"id"`
+	ID          int    `db:"id" json:"id"`
 	Name        string `db:"name" json:"name"`
 	Description string `db:"description" json:"description"`
 	DateBegin   string `db:"date_begin" json:"date_begin"`
 	DateEnd     string `db:"date_end" json:"date_end"`
 }
 
+//New WebService
 func New() *restful.WebService {
 	service := new(restful.WebService)
 	service.Path("/travels").
@@ -37,7 +39,7 @@ func GetTravels(request *restful.Request, response *restful.Response) {
 	var results []TravelResource
 	var travel TravelResource
 	for rows.Next() {
-		err := rows.Scan(&travel.Id, &travel.Name, &travel.Description, &travel.DateBegin, &travel.DateEnd)
+		err := rows.Scan(&travel.ID, &travel.Name, &travel.Description, &travel.DateBegin, &travel.DateEnd)
 		if err != nil {
 			panic(err)
 		}
@@ -62,7 +64,7 @@ func FindTravel(request *restful.Request, response *restful.Response) {
 	defer rows.Close()
 	var travel TravelResource
 	for rows.Next() {
-		err := rows.Scan(&travel.Id, &travel.Name, &travel.Description, &travel.DateBegin, &travel.DateEnd)
+		err := rows.Scan(&travel.ID, &travel.Name, &travel.Description, &travel.DateBegin, &travel.DateEnd)
 		if err != nil {
 			panic(err)
 		}
